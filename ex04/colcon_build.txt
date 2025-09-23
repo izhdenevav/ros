@@ -1,0 +1,4 @@
+Starting >>> vlada
+Finished <<< vlada [0.34s]
+
+Summary: 1 package finished [0.73s]
