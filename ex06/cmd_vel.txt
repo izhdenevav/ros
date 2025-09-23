@@ -1,0 +1,216 @@
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 4.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 4.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 4.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 4.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 4.0
+  y: 2.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.2
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 0.2
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
+linear:
+  x: 2.0
+  y: 4.0
+  z: 2.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 1.8
+---
