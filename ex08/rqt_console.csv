@@ -1,0 +1,7 @@
+message;severity;node;stamp;location
+"Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]";"20";"turtlesim3.sim";"1759142574.687257031";"/home/vlada/ros2_ws/src/ros_tutorials/turtlesim/src/turtle_frame.cpp:spawnTurtle:248"
+"Starting turtlesim with node name /turtlesim3/sim";"20";"turtlesim3.sim";"1759142574.633520291";"/home/vlada/ros2_ws/src/ros_tutorials/turtlesim/src/turtle_frame.cpp:TurtleFrame:147"
+"Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]";"20";"turtlesim2.sim";"1759142574.711630739";"/home/vlada/ros2_ws/src/ros_tutorials/turtlesim/src/turtle_frame.cpp:spawnTurtle:248"
+"Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]";"20";"turtlesim1.sim";"1759142574.709558309";"/home/vlada/ros2_ws/src/ros_tutorials/turtlesim/src/turtle_frame.cpp:spawnTurtle:248"
+"Starting turtlesim with node name /turtlesim2/sim";"20";"turtlesim2.sim";"1759142574.647924780";"/home/vlada/ros2_ws/src/ros_tutorials/turtlesim/src/turtle_frame.cpp:TurtleFrame:147"
+"Starting turtlesim with node name /turtlesim1/sim";"20";"turtlesim1.sim";"1759142574.636286364";"/home/vlada/ros2_ws/src/ros_tutorials/turtlesim/src/turtle_frame.cpp:TurtleFrame:147"
