@@ -20,9 +20,7 @@ from geometry_msgs.msg import Twist
 class TextToCmdVel(Node):
     def __init__(self):
         super().__init__('text_to_cmd_vel')
-        # Publisher for /turtle1/cmd_vel
         self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
-        # Subscriber for /cmd_text
         self.subscription = self.create_subscription(
             String,
             '/cmd_text',
