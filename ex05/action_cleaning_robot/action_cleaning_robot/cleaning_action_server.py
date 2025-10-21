@@ -1,4 +1,5 @@
 import math
+import time
 
 import rclpy
 from rclpy.action import ActionServer
@@ -12,64 +13,62 @@ class ActionServerNode(Node):
     def __init__(self):
         super().__init__('action_server')
         self._action_server = ActionServer(self, CleaningTask, 'cleaning_task', self.execute_callback)
-
         self.current_pose = Pose()
         self.create_subscription(Pose, '/turtle1/pose', self.pose_callback, 10)
         self.vel_pub = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
         # self.timer = self.create_timer(0.1, self.move_to_goal)
+        self.cleaned_points = 0.0
 
     def pose_callback(self, msg):
         self.current_pose = msg
 
+    def update_cleaned_points(self, last_x, last_y):
+        rclpy.spin_once(self, timeout_sec=0.01)
+        dx = self.current_pose.x - last_x
+        dy = self.current_pose.y - last_y
+        dist = math.sqrt(dx**2 + dy**2)
+        self.cleaned_points += dist
+
     def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
         feedback_msg = CleaningTask.Feedback()
-        feedback_msg.current_x = self.current_pose.x
-        feedback_msg.current_y = self.current_pose.y
+        result = CleaningTask.Result()
+
+        task_type = goal_handle.request.task_type
 
         if goal_handle.request.task_type == 'clean_square':
             square_side = goal_handle.request.area_size
             goal_handle.publish_feedback(feedback_msg)
             rclpy.spin_once(self, timeout_sec=1.0)
-        elif goal_handle.request.task_type == 'clean_circle':
-            start_radius = goal_handle.request.area_size
-            self.get_logger().info(f'radius {start_radius}')
-            center_x = self.current_pose.x + start_radius
-            center_y = self.current_pose.y 
-            radius = start_radius
-            angular_speed = 2.0
-            linear_speed_base = 1.0
-            radius_step = 0.02
-            min_linear_speed = 0.1
-            num_steps = int(start_radius / radius_step) * 3
-            for step in range(num_steps):
-                if goal_handle.is_cancel_requested:
-                    result = CleaningTask.Result()
-                    result.success = False
-                    goal_handle.canceled()
-                    return result
+        elif goal_handle.request.task_type == 'clean_circle':         
+            radius = goal_handle.request.area_size
+            speed = 1.5
+            twist = Twist()
+            start_radius = 0.1
+            ang_speed = speed / start_radius
+            twist = Twist()
+        
+            while start_radius <= radius:
+                center_x = self.current_pose.x
+                center_y = self.current_pose.y
+                twist.linear.x = speed
+                twist.angular.z = ang_speed
+                self.vel_pub.publish(twist)
 
-                radius = max(0.0, radius - radius_step)
-                feedback_msg.current_x = self.current_pose.x
+                time.sleep(1)
+                self.update_cleaned_points(center_x, center_y)
+                feedback_msg.progress_percent = min(int((start_radius / radius) * 100), 100)
+                feedback_msg.current_cleaned_points = int(self.cleaned_points)
+                feedback_msg.current_x = self.current_pose.x 
                 feedback_msg.current_y = self.current_pose.y
                 goal_handle.publish_feedback(feedback_msg)
 
-                dx = center_x - self.current_pose.x
-                dy = center_y - self.current_pose.y
-                distance_to_center = math.sqrt(dx**2 + dy**2)
+                start_radius += 0.05
+                ang_speed = speed / start_radius
 
-                if distance_to_center < 0.1 or radius < 0.1:
-                    break
-
-                twist = Twist()
-
-                linear_speed = linear_speed_base * (radius / start_radius)
-                twist.linear.x = max(min_linear_speed, linear_speed)
-                twist.angular.z = angular_speed
-                
-                self.vel_pub.publish(twist)
-
-                rclpy.spin_once(self, timeout_sec=0.05)
+            twist.linear.x = 0.0
+            twist.angular.z = 0.0
+            self.vel_pub.publish(twist)
         elif goal_handle.request.task_type == 'return_home':
             target_x = goal_handle.request.target_x
             target_y = goal_handle.request.target_y
@@ -98,8 +97,9 @@ class ActionServerNode(Node):
             return result
 
         goal_handle.succeed()
-        result = CleaningTask.Result()
         result.success = True
+        result.total_distance = self.cleaned_points
+        result.cleaned_points = int(self.cleaned_points)
         return result
 
 def main(args=None):

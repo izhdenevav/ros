@@ -8,6 +8,7 @@ class ActionClientNode(Node):
     def __init__(self):
         super().__init__('action_client')
         self._action_client = ActionClient(self, CleaningTask, 'cleaning_task')
+        self.step = 0
 
     def send_goal(self, task_type, area_size, target_x, target_y):
         self.get_logger().info('Waiting for action server...')
@@ -33,17 +34,22 @@ class ActionClientNode(Node):
         result_future.add_done_callback(self.result_callback)
 
     def feedback_callback(self, feedback_msg):
-        self.get_logger().info(f'Received feedback: {feedback_msg.feedback.current_x} {feedback_msg.feedback.current_y}')
+        self.get_logger().info(
+            f'Feedback: percent {feedback_msg.feedback.progress_percent}%, '
+            f'cleaned {feedback_msg.feedback.current_cleaned_points}, '
+            f'pos ({feedback_msg.feedback.current_x:.2f}, {feedback_msg.feedback.current_y:.2f})')
 
     def result_callback(self, future):
         result = future.result().result
         self.get_logger().info(f'Result: {result.success}')
+        self.get_logger().info(f'\tCleaned_points: {result.cleaned_points}')
+        self.get_logger().info(f'\tTotal_distance: {result.total_distance}')
         rclpy.shutdown()
 
 def main(args=None):
     rclpy.init(args=args)
     node = ActionClientNode()
-    node.send_goal(task_type='clean_circle', area_size=10.0, target_x=10.0, target_y=10.0)  
+    node.send_goal(task_type='clean_circle', area_size=3.0, target_x=10.0, target_y=10.0)  
     rclpy.spin(node)
 
 if __name__ == '__main__':
