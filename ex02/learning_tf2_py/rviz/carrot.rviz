@@ -1,0 +1,11 @@
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Show Axes: true
+      Show Names: true
+      Marker Scale: 2
+  Global Options:
+    Fixed Frame: turtle1
+  Enabled: true
