@@ -12,6 +12,7 @@ def generate_launch_description():
         'radius', default_value='2.0',
         description='Радиус орбиты морковки вокруг turtle1'
     )
+
     direction_arg = DeclareLaunchArgument(
         'direction_of_rotation', default_value='1',
         description='1 - по часовой, -1 - против часовой'

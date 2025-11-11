@@ -1,17 +1,3 @@
-# Copyright 2021 Open Source Robotics Foundation, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import math
 
 from geometry_msgs.msg import Twist
@@ -33,7 +19,7 @@ class FrameListener(Node):
 
         # Declare and acquire `target_frame` parameter
         self.target_frame = self.declare_parameter(
-            'target_frame', 'turtle1').get_parameter_value().string_value
+          'target_frame', 'turtle1').get_parameter_value().string_value
 
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
@@ -97,9 +83,9 @@ class FrameListener(Node):
                 # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
                 request = Spawn.Request()
                 request.name = 'turtle2'
-                request.x = 4.0
-                request.y = 2.0
-                request.theta = 0.0
+                request.x = float(4)
+                request.y = float(2)
+                request.theta = float(0)
                 # Call request
                 self.result = self.spawner.call_async(request)
                 self.turtle_spawning_service_ready = True

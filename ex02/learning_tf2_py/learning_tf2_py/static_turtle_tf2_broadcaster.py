@@ -1,17 +1,3 @@
-# Copyright 2021 Open Source Robotics Foundation, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import math
 import sys
 
@@ -25,10 +11,6 @@ from rclpy.node import Node
 from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 
 
-# This function is a stripped down version of the code in
-# https://github.com/matthew-brett/transforms3d/blob/f185e866ecccb66c545559bc9f2e19cb5025e0ab/transforms3d/euler.py
-# Besides simplifying it, this version also inverts the order to return x,y,z,w, which is
-# the way that ROS prefers it.
 def quaternion_from_euler(ai, aj, ak):
     ai /= 2.0
     aj /= 2.0
@@ -96,7 +78,7 @@ def main():
     # obtain parameters from command line arguments
     if len(sys.argv) != 8:
         logger.info('Invalid number of parameters. Usage: \n'
-                    '$ ros2 run turtle_tf2_py static_turtle_tf2_broadcaster'
+                    '$ ros2 run learning_tf2_py static_turtle_tf2_broadcaster'
                     'child_frame_name x y z roll pitch yaw')
         sys.exit(1)
 
