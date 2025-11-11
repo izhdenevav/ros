@@ -22,7 +22,8 @@ def generate_launch_description():
         ),
         DeclareLaunchArgument(
             'target_frame', default_value='turtle1',
-            description='Target frame name.'
+            description='Target frame name.',
+            default_value='carrot1'
         ),
         Node(
             package='learning_tf2_py',

@@ -11,7 +11,6 @@ from tf2_ros import TransformBroadcaster
 
 from turtlesim.msg import Pose
 
-
 def quaternion_from_euler(ai, aj, ak):
     ai /= 2.0
     aj /= 2.0
@@ -34,7 +33,6 @@ def quaternion_from_euler(ai, aj, ak):
     q[3] = cj*cc + sj*ss
 
     return q
-
 
 class FramePublisher(Node):
 
@@ -83,7 +81,6 @@ class FramePublisher(Node):
 
         # Send the transformation
         self.tf_broadcaster.sendTransform(t)
-
 
 def main():
     rclpy.init()
