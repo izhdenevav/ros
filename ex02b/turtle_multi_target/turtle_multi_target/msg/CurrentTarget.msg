@@ -1,0 +1,5 @@
+# msg/CurrentTarget.msg
+string target_name
+float64 target_x
+float64 target_y
+float64 distance_to_target
