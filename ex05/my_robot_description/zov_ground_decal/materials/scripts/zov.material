@@ -4,16 +4,12 @@ material ZovMaterial
   {
     pass
     {
-      // Эти две строки нужны, если у вас PNG с прозрачным фоном.
-      // Если фон белый, их можно убрать, но с ними надежнее.
       scene_blend alpha_blend
       depth_write off
 
       texture_unit
       {
-        // Имя вашего файла с картинкой
         texture zov_texture1.png
-        // Масштабирование текстуры, если нужно повторение (сейчас 1 к 1)
         scale 1 1
       }
     }
