@@ -13,3 +13,7 @@ ros2 run rqt_robot_steering rqt_robot_steering
 2 задание
 
 ros2 run ros_gz_bridge parameter_bridge /scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan depth_camera@sensor_msgs/msg/Image@gz.msgs.Image depth_camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked
+
+3 задание
+
+ros2 run ros_gz_bridge parameter_bridge /scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan /depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /depth_camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked /imu@sensor_msgs/msg/Imu@gz.msgs.IMU
