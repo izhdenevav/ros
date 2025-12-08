@@ -17,3 +17,7 @@ ros2 run ros_gz_bridge parameter_bridge /scan@sensor_msgs/msg/LaserScan@gz.msgs.
 3 задание
 
 ros2 run ros_gz_bridge parameter_bridge /scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan /depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /depth_camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked /imu@sensor_msgs/msg/Imu@gz.msgs.IMU
+
+5 задание
+
+ros2 run ros_gz_bridge parameter_bridge /scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan /depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /depth_camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked /imu@sensor_msgs/msg/Imu@gz.msgs.IMU /cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist

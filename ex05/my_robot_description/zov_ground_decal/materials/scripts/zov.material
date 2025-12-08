@@ -1,0 +1,17 @@
+material ZovMaterial
+{
+  technique
+  {
+    pass
+    {
+      scene_blend alpha_blend
+      depth_write off
+
+      texture_unit
+      {
+        texture zov_texture1.png
+        scale 1 1
+      }
+    }
+  }
+}
